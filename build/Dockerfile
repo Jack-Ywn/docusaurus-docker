@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-alpine3.17
 
 #替换国内源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
