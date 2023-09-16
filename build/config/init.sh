@@ -16,12 +16,11 @@ echo -e "Variables:
 \\t- UID=${TARGET_UID}
 \\t- GID=${TARGET_GID}
 \\t- WEBSITE_NAME=${WEBSITE_NAME}
-\\t- MAXLISTENRTS=${MAXLISTENRTS}
 \\t- TEMPLATE=${TEMPLATE}"
 
-#检查是否安装docusaurus
+#必须配置WEBSITE_NAME
 [[ -z "$WEBSITE_NAME" ]] && \
-    msg "You have to enter your website name. Program will be closed." && chown -R "$TARGET_UID":"$TARGET_GID" "$DOCU_PATH" && exit
+    msg "You have to enter your website name. Program will be closed." && exit
 
 #初始化安装docusaurus	
 if [[ ! -d "$DOCU_PATH"/"$WEBSITE_NAME" ]]; then
@@ -31,6 +30,7 @@ if [[ ! -d "$DOCU_PATH"/"$WEBSITE_NAME" ]]; then
     ln -s "$DOCU_PATH"/"$WEBSITE_NAME" "$WEB_SRC_PATH"
     chown -R "$TARGET_UID":"$TARGET_GID" "$DOCU_PATH"
 else
+    chown -R "$TARGET_UID":"$TARGET_GID" "$DOCU_PATH"
     msg "Docusaurus configuration already exists in the target directory $DOCU_PATH"
 fi
 
