@@ -21,7 +21,7 @@ echo -e "Variables:
 
 #检查是否安装docusaurus
 [[ -z "$WEBSITE_NAME" ]] && \
-    msg "You have to enter your website name. Program will be closed." && exit
+    msg "You have to enter your website name. Program will be closed." && chown -R "$TARGET_UID":"$TARGET_GID" "$DOCU_PATH" && exit
 
 #初始化安装docusaurus	
 if [[ ! -d "$DOCU_PATH"/"$WEBSITE_NAME" ]]; then
