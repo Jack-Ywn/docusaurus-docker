@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  docusaurus:
+    image: jackywn/docusaurus
+    container_name: docusaurus
+    ports:
+      - "80:80"
+    volumes:
+      - ./docusaurus:/docusaurus
+    environment:
+      - TARGET_UID=1000
+      - TARGET_GID=1000
+      - WEBSITE_NAME=awesometic-docs
+      - MAXLISTENRTS=20
+      - TEMPLATE=classic
