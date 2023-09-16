@@ -11,6 +11,6 @@ services:
     environment:
       - TARGET_UID=1000
       - TARGET_GID=1000
-      - WEBSITE_NAME=awesometic-docs
+      - WEBSITE_NAME=my-website
       - MAXLISTENRTS=20
       - TEMPLATE=classic
