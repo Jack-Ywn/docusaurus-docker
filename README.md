@@ -54,12 +54,6 @@ server {
     ssl_certificate          example.com.cer;
     ssl_certificate_key      example.com.key;
 
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location = /robots.txt  { access_log off; log_not_found off; }
-
-    #配置CSP头（由于HTTPS页面中混合HTTP静态资源会被浏览器阻止，这是Bug后续在代码中修正后可以无需这段配置）
-    add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' cdn.jsdelivr.net cdn.staticfile.org; object-src 'none'; child-src 'self'; frame-ancestors 'self'; upgrade-insecure-requests;";
-
     location / {
         proxy_pass  http://127.0.0.1:8000;
         proxy_set_header Host $host;
