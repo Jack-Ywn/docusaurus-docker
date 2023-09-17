@@ -13,6 +13,7 @@ echo -e "Variables:
 \\t- UID=${TARGET_UID}
 \\t- GID=${TARGET_GID}
 \\t- WEBSITE_NAME=${WEBSITE_NAME}
+\\t- VERSION=${VERSION}
 \\t- TEMPLATE=${TEMPLATE}"
 
 #必须配置WEBSITE_NAME
@@ -22,7 +23,7 @@ echo -e "Variables:
 #初始化安装docusaurus	
 if [[ ! -d "$DOCU_PATH"/"$WEBSITE_NAME" ]]; then
     msg "Install docusaurus..."
-    npx create-docusaurus@latest "$WEBSITE_NAME" "$TEMPLATE" &
+    npx create-docusaurus@"$VERSION" "$WEBSITE_NAME" "$TEMPLATE" &
     [[ "$!" -gt 0 ]] && wait $!
     ln -s "$DOCU_PATH"/"$WEBSITE_NAME" "$WEB_SRC_PATH"
     chown -R "$TARGET_UID":"$TARGET_GID" "$DOCU_PATH"
