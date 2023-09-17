@@ -1,7 +1,8 @@
 FROM node:20-alpine3.17
 
-#设置npm的registry为淘宝镜像
-RUN npm config set registry https://registry.npm.taobao.org
+#设置registry为淘宝镜像
+RUN npm config set registry https://registry.npm.taobao.org/
+RUN yarn config set registry https://registry.npm.taobao.org/
 
 #替换国内源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
