@@ -14,6 +14,7 @@ RUN apk add --no-cache \
 #配置传参	
 ENV TARGET_UID=1000
 ENV TARGET_GID=1000
+ENV VERSION=latest
 ENV WEBSITE_NAME='my-website'
 ENV TEMPLATE='classic'
 ENV MAXLISTENRTS='20'
