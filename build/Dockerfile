@@ -17,7 +17,6 @@ ENV TARGET_GID=1000
 ENV VERSION=latest
 ENV WEBSITE_NAME='my-website'
 ENV TEMPLATE='classic'
-ENV MAXLISTENRTS='20'
 
 #配置工作目录
 RUN mkdir /docusaurus
