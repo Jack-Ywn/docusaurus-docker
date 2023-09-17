@@ -5,9 +5,6 @@ msg() {
     echo -E "/* $1 */"
 }
 
-#设置EventEmitter的默认最大监听器数量
-node -e "const EventEmitter = require('events'); EventEmitter.defaultMaxListeners = $MAXLISTENRTS;"
-
 #设置站点目录信息
 DOCU_PATH="/docusaurus"
 WEB_SRC_PATH="$DOCU_PATH"/website
